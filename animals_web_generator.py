@@ -4,7 +4,7 @@ HTML_FILE_NAME = "animal.html"
 
 
 def main():
-    """Generate html page by skin type that gets from user"""
+    """Generate html page by animal name that gets from user"""
     # get animal name from user
     animal_name_input = get_user_input()
 
@@ -42,6 +42,7 @@ def read_file(file_path):
 
 
 def generating_empty_data_for_html(animal_name):
+    """Generates html for empty data case"""
     output = ""
     output += '<li class="cards__item">'
     output += f"<h2>The animal {animal_name} doesn't exist.</h2>"
