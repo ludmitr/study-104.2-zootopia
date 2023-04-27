@@ -1,17 +1,15 @@
-import requests
+import data_fetcher
 
-API_KEY = "XFRC5aD4/q1QCnKHZJiFRA==zknfRp8r7bXdBEPh"
 HTML_FILE_NAME = "animal.html"
 
 
 def main():
     """Generate html page by skin type that gets from user"""
-
     # get animal name from user
     animal_name_input = get_user_input()
 
     # getting data
-    animals_data = load_data(animal_name_input)
+    animals_data = data_fetcher.fetch_data(animal_name_input)
 
     animals_data_string_for_html = serialization_of_data_for_html(animals_data, animal_name_input)
 
@@ -101,14 +99,6 @@ def serialize_animal(animal):
     output += "</li>\n"
 
     return output
-
-
-def load_data(animal_name):
-    """ Loads a JSON from  https://api.api-ninjas.com API"""
-    url = f"https://api.api-ninjas.com/v1/animals?name={animal_name}"
-    res = requests.get(url, headers={"X-Api-Key": API_KEY})
-
-    return res.json()
 
 
 if __name__ == '__main__':
