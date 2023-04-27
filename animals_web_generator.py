@@ -65,7 +65,7 @@ def read_file(file_path):
         return file.read()
 
 
-def generationg_empty_data_for_html(animal_name):
+def generating_empty_data_for_html(animal_name):
     output = ""
     output += '<li class="cards__item">'
     output += f"<h2>The animal {animal_name} doesn't exist.</h2>"
@@ -80,7 +80,7 @@ def serialization_of_data_for_html(data, animal_name):
         for animal in data:
             animals_data_as_string += serialize_animal(animal)
     else:
-        animals_data_as_string = generationg_empty_data_for_html(animal_name)
+        animals_data_as_string = generating_empty_data_for_html(animal_name)
 
     return animals_data_as_string
 
