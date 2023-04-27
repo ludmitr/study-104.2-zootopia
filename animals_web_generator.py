@@ -23,32 +23,10 @@ def main():
     print(f"Website was successfully generated to the file {HTML_FILE_NAME}")
 
 
-def serialization_of_data_by_skin_type(data, skin_type):
-    """Serialization of data by skin type for html page.
-    Returns string"""
-    animals_data_as_string = ""
-
-    for animal in data:
-        if "skin_type" in animal["characteristics"] \
-                and animal["characteristics"]["skin_type"].lower() == skin_type:
-            animals_data_as_string += serialize_animal(animal)
-
-    return animals_data_as_string
-
-
 def get_user_input():
     """Get user input. return string"""
     user_input = input("Enter a name of an animal: ")
     return user_input
-
-
-def get_skin_type_list(data):
-    """Return list of animal skin types"""
-    skin_types = set()
-    for animal in data:
-        skin_types.add(animal["characteristics"]["skin_type"])
-
-    return list(skin_types)
 
 
 def write_file(file_path, data):
